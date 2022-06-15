@@ -1,0 +1,9 @@
+{
+  "baseUrl": "https://kompot.us",
+  "video": false,
+  "retries": {
+    "runMode": 1,
+    "openMode": 1
+  }
+}
+

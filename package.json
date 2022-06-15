@@ -1,0 +1,23 @@
+{
+  "name": "crm-kompot-ui",
+  "version": "1.0.0",
+  "description": "framework for",
+  "main": "index.js",
+  "scripts": {
+    "cy.open": "npx cypress open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KamilaAdakanova/CRM-kompot-ui.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KamilaAdakanova/CRM-kompot-ui/issues"
+  },
+  "homepage": "https://github.com/KamilaAdakanova/CRM-kompot-ui#readme",
+  "dependencies": {
+    "cypress": "^9.6.1"
+  }
+}
