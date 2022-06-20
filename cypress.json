@@ -1,6 +1,7 @@
 {
   "baseUrl": "https://kompot.us",
   "video": false,
+  "defaultCommandTimeout":30000,
   "retries": {
     "runMode": 1,
     "openMode": 1

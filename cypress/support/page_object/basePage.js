@@ -5,6 +5,10 @@ export class  BasePage{
     logoKompot= () => cy.get('#logo');
 
 
+
+
+
+
 }
 
 export default BasePage;

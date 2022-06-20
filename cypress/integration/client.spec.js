@@ -18,21 +18,47 @@ describe('CLIENT PAGE', () => {
     //     return Client.delete({ email: client.client.email });
     // });
 
-    it.skip('Client page is open', () => {
+    it('Client page is open', () => {
         navigateTo.clientPageIsOpen()
     });
 
-    it.skip('Create Client Button opens new window ', () => {
+    it('Create Client Button opens new window ', () => {
         clientPage.createClientBtn().click({force: true})
         clientPage.clientHeader()
     });
 
-    it.skip('Create New Client', () => {
+    it('Create New Client', () => {
         cy.createClient();
 
     })
 
-    it.skip('Bottom Cancel creating new client', ()=>{
+        it.only('flag code of country ', function () {
+
+            navigateTo.clientPageIsOpen()
+            clientPage.createClientBtn().click({force: true});
+            clientPage.clientHeader();
+            clientPage.firstNameField({force: true}).type(client.firstName);
+            clientPage.lastNameField().type(client.lastName);
+            clientPage.companyNameField().type(client.company);
+
+            const countryArray = []
+            cy.get('button[aria-label="Select country"]').click();
+            cy.get('ul[role="menu"]').
+            children().each((el) => {
+                let fullCountryName = el[0].innerText.split('\n')[0]
+                let countryCode = el[0].innerText.split('\n')[1]
+                let shortCountryName = el[0].dataset.countryCode
+                //console.log({shortCountryName,fullCountryName,countryCode})
+                countryArray.push({fullCountryName, shortCountryName, countryCode})
+                /*console.log(fullCountryName)
+                console.log(el[0].dataset.countryCode)
+                console.log(el[0].innerText.split('\n'))*/
+            })
+            console.log(countryArray)
+            cy.writeFile('flag.json', countryArray)
+        })
+
+    it('Bottom Cancel creating new client', ()=>{
         navigateTo.clientPageIsOpen()
         clientPage.createClientBtn().click({force: true})
         clientPage.firstNameField().type(client.firstName);
@@ -41,7 +67,7 @@ describe('CLIENT PAGE', () => {
         clientPage.clientHeader()
     })
 
-    it.skip('Client Profile contains client info and leftSideBar', () =>{
+    it('Client Profile contains client info and leftSideBar', () =>{
         cy.createClient();
         leftSideBar.leftSideBarForClient('Orders');
     })

@@ -38,12 +38,12 @@ const registrationPage = new RegistrationPage()
 
 Cypress.Commands.add('registration', function (path) {
     cy.visit('/')
-    basePage.registrationBtn().click()
-    registrationPage.emailField().type('kadakanova@gmail.com')
+    basePage.registrationBtn().first().click()
+    registrationPage.emailField().type('kadakanova2@gmail.com')
     registrationPage.passwordField().type('Qwerty123')
     registrationPage.createBtn().click()
-    registrationPage.fullNameField().type('Boris')
-    registrationPage.phoneNumber().type(2345678876)
+    registrationPage.fullNameField().type()
+    registrationPage.phoneNumber().type(1234567765)
     registrationPage.createBtn().click()
     registrationPage.companyField().type('Happy')
     registrationPage.primaryIndustryField('JH')
@@ -53,12 +53,12 @@ Cypress.Commands.add('registration', function (path) {
 
 
 Cypress.Commands.add('login', function (path){
-    cy.visit('/')
+    cy.visit('/').wait(1000)
     basePage.loginBtn().click()
-    loginPage.emailField().type('test@gmail.com')
+    loginPage.emailField().type('test@gmail.com').wait(2000)
     loginPage.passwordField().type('Qwerty12')
     loginPage.submitBtn().contains('Log in').click()
-    loginPage.headerBase().should('be.visible', 'Reports')
+    // loginPage.headerBase().should('be.visible', 'Reports')
 })
 
 Cypress.Commands.add('createClient', () =>{
