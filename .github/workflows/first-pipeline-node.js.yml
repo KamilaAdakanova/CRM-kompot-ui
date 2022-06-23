@@ -26,7 +26,5 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - name: install all npm packages
     - run: npm i 
-    - name: run test login.spec.js
     - run: npm run pipeline
